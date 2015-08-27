@@ -1,0 +1,290 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>border-radius</title>
+<style type="text/css">
+body{margin:0;padding:0;}
+@font-face{
+	font-family:"MOOC Font";
+	src:url("http://www.imooc.com/Amaranth-BoldItalic.otf");
+}
+div{
+	margin:50px;
+	height:100px;/*与width设置一致*/
+    width:100px;
+	float:left;
+}
+div.wrap{
+	height:100px;
+	width:100px;
+	border:1px solid blue;
+}
+
+.demotxt,p{
+	text-align:center;
+}
+
+
+div.circle{
+    
+    background:#9da;
+    border-radius:10px 100px 50px 50px;/*四个圆角值都设置为宽度或高度值的一半*/
+	
+    }
+div.boxshadow{
+	box-shadow:4px 4px 6px #000,
+			   -4px 4px 6px #ccc inset;
+}
+div.borderimg{
+    height:80px;/*与width设置一致*/
+    width:80px;
+	border:10px solid #ccc;
+    border-image:url(http://pic.nipic.com/2008-05-07/20085722191339_2.jpg) 20 repeat;
+}
+div.rgba{
+    background-color:rgba(0,0,0,0.2);
+}
+div.gradient{
+	background-image:linear-gradient(to top left,#9da,#c3d)
+}
+div.overflow{
+    border:2px solid #ccc;
+	height:96px;
+	width:96px;
+	
+}
+
+div.overflow .content{
+    text-overflow:ellipsis;/*文字溢出省略显示*/
+	overflow:hidden;/*溢出隐藏*/
+	white-space:nowrap;/*行内显示*/
+	
+}
+div.infont{
+	font-family:"MOOC Font";
+	
+}
+div.txtshadow{
+	text-shadow:2px 2px 0 #9da;
+
+}
+div.imgorigin{
+	height:70px;
+	width:70px;
+	padding:10px;
+	border:5px solid #ccc;
+	background:url(http://pic.nipic.com/2008-05-07/20085722191339_2.jpg) no-repeat;
+	background-origin:content-box;/*borderbox or paddingbox*/
+}
+div.imgclip{
+	height:70px;
+	width:70px;
+	padding:10px;
+	border:5px solid #ccc;
+	background:url(http://pic.nipic.com/2008-05-07/20085722191339_2.jpg) no-repeat;
+	background-origin:content-box;/*borderbox or paddingbox*/
+	background-clip:content-box;
+}
+div.imgsize{
+    background:url(http://pic.nipic.com/2008-05-07/20085722191339_2.jpg) no-repeat;
+	background-size:auto;
+}
+div.mulimg{
+	background:url(http://pic.nipic.com/2008-05-07/20085722191339_2.jpg) no-repeat left top/75% 50%,
+	url(http://pic.nipic.com/2008-05-07/20085722191339_2.jpg) no-repeat bottom right /50% 30%;
+}
+div.rotate{
+    transform:rotate(30deg);
+	border:1px solid blue;
+}
+div.skew{
+    transform:skew(10deg,20deg);
+	border:1px solid blue;
+}
+
+div.scale{
+	margin:0;
+    transform:scale(0.8);
+	background-color:rgba(0,0,0,0.2);
+	
+}
+div.translate{
+    margin:0;
+    transform:translate(10px,5px);
+	background-color:rgba(0,0,0,0.2);
+}
+div.matrix{
+	margin:0;
+	transform:matrix(1,0,0,1,10,5);
+	background-color:rgba(0,0,0,0.2);
+}
+div.origin{
+	margin:0;
+	background-color:rgba(0,0,0,0.2);
+	transform-origin:top right;
+	transform:skew(15deg);
+}
+div.property{
+	margin:0;
+	background:#9da;
+<!--transition:property duration timing-function delay-->
+<!--	transition-property:border-radius;
+	transition-duration:2s;
+	transition-timing-function:linear;
+	transition-delay:0.5s;
+	-moz-transition-duration:2s;
+	-moz-transition-timing-function:linear;
+	-moz-transition-delay:0.5s;
+-->
+	transition:all 2s ease-in 0.5s;
+}
+div.property:hover{
+	border-radius:100%;
+	background:orange;
+}
+
+@keyframes changecolor{
+    20%{
+		background:#9da;
+	}
+	50%{
+		background:#ccc;
+	}
+	100%{
+		background:orange;
+	}
+}
+div.keyframes{
+	border:1px solid blue;
+}
+div.keyframes:hover{
+/*animation:name duration timing-function delay iteration-count次数 fill-mode结束方式*/
+	animation:changecolor 3s ease-out .2s 2 both;
+
+}
+div.wrap-col{
+    width:300px;
+	height:300px;
+	border:1px solid #ccc;
+	overflow:hidden;
+	columns:100px 3;
+	-moz-columns:100px 4;
+	-moz-column-rule:2px dotted green;
+}
+</style>
+</head>
+<body>
+
+
+    <div class="circle">
+		<h4 class="demotxt">圆角</h4>
+		<p class="content">border-radius</p>
+		
+    </div>
+    <div class="boxshadow">
+		<h4 class="demotxt">阴影</h4>
+		<p class="content">box-shadow</p>
+    </div>
+	<div class="borderimg">
+		<h4 class="demotxt">图片边框</h4>
+		<p class="content">border-image</p>
+		
+    </div>
+	<div class="rgba">
+		<h4 class="demotxt">颜色RGBA</h4>
+		<p class="content">color:rgba(R,G,B,A)</p>
+		
+    </div>
+	<div class="gradient">
+		<h4 class="demotxt">渐变色彩</h4>
+		<p class="content">linear-gradient()</p>
+		
+    </div>
+	<div class="overflow">
+		<h4 class="demotxt">文本溢出</h4>
+		<p class="content">text-overflow:ellipsis; </p>
+		
+    </div>
+	<div class="infont">
+		<h4 class="demotxt">嵌入字体</h4>
+		<p class="content">@font-face{font:xx;} </p>
+    </div>
+	<div class="txtshadow">
+		<h4 class="demotxt">文字阴影</h4>
+		<p class="content">txt-shadow:X&nbsp;Y;</p>
+    </div>
+	<div class="imgorigin">
+		<h4 class="demotxt">图片起始位置</h4>
+		<p class="content">background-origin</p>
+    </div>
+	<div class="imgclip">
+		<h4 class="demotxt">图片裁剪</h4>
+		<p class="content">background-clip</p>
+    </div>
+	<div class="imgsize">
+		<h4 class="demotxt">图片大小</h4>
+		<p class="content">background-size</p>
+    </div>
+	<div class="mulimg">
+		<h4 class="demotxt">多重背景</h4>
+		<p class="content">background</p>
+    </div>
+	<div class="rotate">
+		<h4 class="demotxt">transform旋转</h4>
+		<p class="content">rotate(30deg)</p>
+    </div>
+	<div class="skew">
+		<h4 class="demotxt">transform扭曲</h4>
+		<p class="content">skew(10deg,20deg)</p>
+    </div>
+	
+	<div class="wrap">
+		<div class="scale">
+			<h4 class="demotxt">transform缩放</h4>
+			<p class="content">scale(0.8)</p>
+	    </div>
+	</div>
+	<div class="wrap">
+		<div class="translate">
+			<h4 class="demotxt">transform位移</h4>
+			<p class="content">translate(10px,5px)</p>
+		</div>
+	</div>
+	<div class="wrap">
+		<div class="matrix">
+			<h4 class="demotxt">transform矩阵</h4>
+			<p class="content">matrix(1,0,0,1,10,5)</p>
+		</div>
+	</div>
+	<div class="wrap">
+		<div class="origin">
+			<h4 class="demotxt">transform原点</h4>
+			<p class="content">transform-origin:top right</p>
+		</div>
+	</div>
+	<div class="wrap">
+		<div class="property">
+			<h4 class="demotxt">transform动画</h4>
+			<p class="content">transform-property:</p>
+		</div>
+	</div>
+	<div class="keyframes">
+		<h4 class="demotxt">动画关键帧</h4>
+		<p class="content">@keyframes changecolor{}</p>
+    </div>
+	
+	<div class="wrap">
+		<div class="my3d">
+			<h4 class="demotxt">3d动画</h4>
+			<p class="content">transform-property:</p>
+		
+		</div>
+	</div>
+    <div class="wrap-col">
+		<h4 class="demotxt">多列布局</h4>
+		<p class="content">为了能在Web页面中方便实现类似报纸、杂志那种多列排版的布局，W3C特意给CSS3增加了一个多列布局模块（CSS Multi Column Layout Module）。它主要应用在文本的多列布局方面，这种布局在报纸和杂志上都使用了几十年了，但要在Web页面上实现这样的效果还是有相当大的难度，庆幸的是，CSS3的多列布局可以轻松实现。接下来咱们一起学习多列布局相关的知识。</p>
+	</div>
+
+</body>
+</html>
